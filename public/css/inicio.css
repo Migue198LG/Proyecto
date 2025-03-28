@@ -1,0 +1,140 @@
+        :root {
+            --body-bg: url("https://img.lovepik.com/background/20211021/large/lovepik-gradual-change-of-mechanical-technology-background-image_400514721.jpg");
+            --form-bg: rgba(44, 62, 80, 0.95);
+            --text-color: #ecf0f1;
+
+            --primary-color: #4f6377;
+            --secondary-color: #6b8aa1;
+            --hover-color: #2f4053;
+            --button-hover-color: rgba(255, 255, 255, 0.2);
+
+            --light-gray: #bdc3c7;
+            --border-radius: 15px;
+
+            --font-primary: "Ubuntu", sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--text-color);
+            background: linear-gradient(to bottom, rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), var(--body-bg);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: var(--form-bg);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            width: 100%;
+            max-width: 450px;
+            margin: 20px auto;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 400;
+            color: #ecf0f1;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .tabs button {
+            background: none;
+            color: #fff;
+            border: 1px solid #bdc3c7;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: var(--border-radius);
+            margin: 0 5px;
+        }
+
+        .tabs button.active {
+            background-color: #4f6377;
+        }
+
+        .form-container {
+            display: none;
+        }
+
+        .form-container.active {
+            display: block;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #ecf0f1;
+        }
+
+        .input-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .input-container input, .select-container select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #bdc3c7;
+            border-radius: var(--border-radius);
+            background: rgba(255, 255, 255, 0.1);
+            color: #ecf0f1;
+        }
+
+        .select-container select {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #4f6377;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background: #2f4053;
+            transform: scale(1.03);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsividad */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            label {
+                font-size: 12px;
+            }
+            input, select {
+                padding: 10px;
+            }
+            button {
+                padding: 10px;
+            }
+        }

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú - MECH-RECORD</title>
+    <style>
+        :root {
+            --body-bg: url("https://img.lovepik.com/background/20211021/large/lovepik-gradual-change-of-mechanical-technology-background-image_400514721.jpg");
+            --form-bg: rgba(44, 62, 80, 0.95);
+            --text-color: #ecf0f1;
+
+            --primary-color: #4f6377;
+            --secondary-color: #6b8aa1;
+            --hover-color: #2f4053;
+            --button-hover-color: rgba(255, 255, 255, 0.2);
+
+            --light-gray: #bdc3c7;
+            --border-radius: 15px;
+
+            --font-primary: "Ubuntu", sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--text-color);
+            background: linear-gradient(to bottom, rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), var(--body-bg);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .title {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .content {
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Estilos para el formulario de registro */
+        .container {
+            background: var(--form-bg);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            width: 100%;
+            max-width: 450px;
+            margin: 20px auto;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 400;
+            color: #ecf0f1;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #ecf0f1;
+        }
+
+        .input-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .input-container input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #bdc3c7;
+            border-radius: var(--border-radius);
+            background: rgba(255, 255, 255, 0.1);
+            color: #ecf0f1;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #4f6377;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background: #2f4053;
+            transform: scale(1.03);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #777;
+        }
+
+        /* Responsividad */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            label {
+                font-size: 12px;
+            }
+            input {
+                padding: 10px;
+            }
+            button {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h2>REGISTRAR CLIENTE</h2>
+        <div class="container">
+            <h1>Formulario de Registro</h1>
+            <form>
+                <div class="input-container">
+                    <input type="text" id="name" placeholder="Ingresa tu nombre completo" required>
+                </div>
+                <div class="input-container">
+                    <input type="email" id="emailRegister" placeholder="Ejemplo: usuario@gmail.com" required>
+                </div>
+                <div class="input-container">
+                    <input type="password" id="passwordRegister" placeholder="Ingresa tu contraseña" required>
+                </div>
+                <div class="input-container">
+                    <input type="password" id="passwordConfirm" placeholder="Repite tu contraseña" required>
+                </div>
+                <button type="submit">Registrar</button>
+            </form>
+            <a href="inicio_mecanico.html" class="back-button">&#8592; Regresar</a>
+        </div>
+    </div>
+</body>
+</html>

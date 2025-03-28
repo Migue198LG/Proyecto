@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú - MECH-RECORD</title>
+    <style>
+        :root {
+            --form-bg: rgba(44, 62, 80, 0.95);
+            --text-color: #ecf0f1;
+            --primary-bg: #4f6377;
+            --menu-bg-1: #6b8aa1; /* Rojo grisáceo claro */
+            --menu-bg-2: #4f6377; /* Gris verdoso */
+            --menu-bg-3: #2f4053; /* Gris oscuro */
+            --menu-bg-4: #76db98; /* Verde menta */
+            --hover-bg: #2f4053; /* Gris oscuro al pasar el ratón */
+            --submenu-bg: rgba(103, 122, 141, 0.95); /* Azul grisáceo */
+            --hover-color: #8599ad; /* Azul claro */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #2f4053;
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: var(--menu-bg-1);
+            color: var(--text-color);
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            border: 2px solid #e74c3c; /* Bordes rojos */
+        }
+
+        header h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: var(--menu-bg-2);
+            padding: 10px 0;
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+        }
+
+        nav button {
+            background-color: var(--menu-bg-3);
+            color: var(--text-color);
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav button:hover {
+            background-color: var(--hover-bg);
+        }
+
+        .content {
+            text-align: center;
+            width: 100%;
+            max-width: 1200px;
+            background-color: var(--form-bg);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            border: 2px solid #e74c3c; /* Bordes rojos */
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        th {
+            background-color: var(--menu-bg-1);
+            color: var(--text-color);
+        }
+
+        tbody tr:hover {
+            background-color: #ffe0b2;
+        }
+
+        .btn-primary {
+            background-color: var(--menu-bg-4);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 15px;
+            margin: 10px 0;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #2f4053;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 500px;
+        }
+
+        .modal-header, .modal-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header {
+            border-bottom: 1px solid #ddd;
+        }
+
+        .modal-footer {
+            border-top: 1px solid #ddd;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MECH-RECORD</h1>
+    </header>
+    
+    <nav>
+        <a href="inicio_mecanico.html"><button>Inicio</button></a>
+        <a href="catalogo_mecanico.html"><button>Catálogo</button></a>
+        <a href="cliente_nuevo_mecanico.html"><button>Clientes</button></a>
+    </nav>
+
+    <div class="content">
+        <h2>Bitácora</h2>
+        <button class="btn-primary" onclick="openModal()">Agregar Cambio</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>Fecha y Hora</th>
+                    <th>Descripción</th>
+                    <th>Usuario</th>
+                </tr>
+            </thead>
+            <tbody id="bitacora-body">
+                <tr>
+                    <td>2024-11-27 13:00</td>
+                    <td>Actualización de catálogo de clientes</td>
+                    <td>Admin</td>
+                </tr>
+                <tr>
+                    <td>2024-11-26 10:30</td>
+                    <td>Revisión de inventario</td>
+                    <td>Usuario1</td>
+                </tr>
+                <tr>
+                    <td>2024-11-25 15:45</td>
+                    <td>Ajuste en precios de productos</td>
+                    <td>Admin</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Agregar Cambio</h3>
+                <button class="close-btn" id="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="bitacora-form">
+                    <div>
+                        <label for="fecha">Fecha y Hora:</label>
+                        <input type="datetime-local" id="fecha" required>
+                    </div>
+                    <div>
+                        <label for="descripcion">Descripción:</label>
+                        <input type="text" id="descripcion" required>
+                    </div>
+                    <div>
+                        <label for="usuario">Usuario:</label>
+                        <input type="text" id="usuario" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModal()">Cancelar</button>
+                <button class="btn-primary" onclick="agregarCambio(event)">Guardar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("close-btn").addEventListener("click", closeModal);
+
+        function openModal() {
+            document.getElementById("modal").classList.add("show");
+        }
+
+        function closeModal() {
+            document.getElementById("modal").classList.remove("show");
+        }
+
+        function agregarCambio(event) {
+            event.preventDefault(); // Evita el envío del formulario
+
+            const fecha = document.getElementById("fecha").value;
+            const descripcion = document.getElementById("descripcion").value;
+            const usuario = document.getElementById("usuario").value;
+
+            if (fecha && descripcion && usuario) {
+                const tableBody = document.getElementById("bitacora-body");
+
+                // Crear una nueva fila y celdas
+                const row = document.createElement("tr");
+                const tdFecha = document.createElement("td");
+                tdFecha.textContent = fecha;
+
+                const tdDescripcion = document.createElement("td");
+                tdDescripcion.textContent = descripcion;
+
+                const tdUsuario = document.createElement("td");
+                tdUsuario.textContent = usuario;
+
+                // Agregar celdas a la fila
+                row.appendChild(tdFecha);
+                row.appendChild(tdDescripcion);
+                row.appendChild(tdUsuario);
+
+                // Agregar la fila al cuerpo de la tabla
+                tableBody.appendChild(row);
+
+                closeModal();
+
+                // Limpiar campos después de agregar
+                document.getElementById("fecha").value = "";
+                document.getElementById("descripcion").value = "";
+                document.getElementById("usuario").value = "";
+            } else {
+                alert("Por favor, completa todos los campos.");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap-flex.min.css">
+    <script src="https://use.fontawesome.com/5765211a64.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="../css/app.css">
+  </head>
+  <body>
+     <!-- Header -->
+     <header>
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 20px; background-color: var(--menu-bg-1); border-radius: 25px;">
+        <!-- Logo e Identificación -->
+        <div style="display: flex; align-items: center; gap: 15px;">
+          <img src="../imgs/logotipo.png" alt="Logo de MECH-RECORD" style="max-width: 120px; height: auto; border-radius: 10px;">
+  
+          <h1 style="margin: 0; font-size: 32px; color: var(--text-color);">MECH-RECORD</h1>
+        </div>
+    
+      </div>
+    </header>
+    
+    <!-- /Header -->
+
+    <!-- Menu -->
+
+    <div id="menu-container">
+      <nav id="navMenu" class="navbar-toggleable-xs navbar navbar-light collapse">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-md-4">
+              <div class="nav-container text-xs-center text-md-left">
+                <ul class="nav navbar-nav">
+                  <li class="nav-item text-xs-center">
+                    <a class="nav-link" href="#">Home</a>
+                  </li>
+                  <li class="nav-item text-xs-center active">
+                    <a class="nav-link" href="#">Catálogo <span class="sr-only">(current)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!-- /Menu -->
+
+    <!-- Productos -->
+
+    <div id="productos-container">
+      <div class="container">
+        <div class="row">
+          <!-- Filtros -->
+
+          <div class="col-xs-12 col-md-3">
+            <div class="list-group filtros-toggle rounded">
+              <a id="filtrosToggle" href="#" class="list-group-item list-group-item-action navbar-toggler hidden-sm-up rounded-top" data-target="#filtros-container" data-toggle="collapse">
+                <h5 class="list-group-item-heading">Filtros <i class="fa fa-chevron-down"></i></h5>
+              </a>
+            </div>
+            <div id="filtros-container" class="collapse navbar-toggleable-xs">
+              <div class="list-group rounded-bottom">
+                <a href="#" class="list-group-item list-group-item-action active rounded-top">
+                  <h5 class="list-group-item-heading">Categoría</h5>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action rounded">
+                  Partes mecánicas <span class="tag tag-pill tag-default pull-xs-right">174</span>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action rounded">
+                  Carrocería <span class="tag tag-pill tag-default pull-xs-right">143</span>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action rounded">
+                  Motor <span class="tag tag-pill tag-default pull-xs-right">130</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- /Filtros -->
+
+         <!-- Listado -->
+<div class="col-xs-12 col-md-9">
+  <div class="row g-0"> <!-- Remueve espacios entre columnas -->
+      <!-- Producto Ejemplo 1 -->
+      <div class="col-4"> <!-- Ajusta para tres productos por fila -->
+          <div class="card rounded">
+              <img class="card-img-top img-fluid" src="https://www.acdelco.mx/img/productos/bujias-beneficios.jpg" alt="Producto 1">
+              <div class="card-block text-center">
+                  <h4 class="card-title">Producto 1</h4>
+                  <p class="card-text">Descripción del producto 1.</p>
+                  <!-- Botones de acciones -->
+                  <div class="d-flex justify-content-center gap-2">
+                      <button class="btn btn-primary btn-sm rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#editModal">Editar</button>
+                      <button class="btn btn-danger btn-sm rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#deleteModal">Eliminar</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- Producto Ejemplo 2 -->
+      <div class="col-4">
+          <div class="card rounded">
+              <img class="card-img-top img-fluid" src="https://i5.walmartimages.com.mx/gr/images/product-images/img_large/00750112165705L.jpg" alt="Producto 2">
+              <div class="card-block text-center">
+                  <h4 class="card-title">Producto 2</h4>
+                  <p class="card-text">Descripción del producto 2.</p>
+                  <!-- Botones de acciones -->
+                  <div class="d-flex justify-content-center gap-2">
+                      <button class="btn btn-primary btn-sm rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#editModal">Editar</button>
+                      <button class="btn btn-danger btn-sm rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#deleteModal">Eliminar</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Producto Ejemplo 1 -->
+      <div class="col-4"> <!-- Ajusta para tres productos por fila -->
+        <div class="card rounded">
+            <img class="card-img-top img-fluid" src="https://img.freepik.com/vector-gratis/piezas-automoviles-gran-conjunto-imagenes-realistas-aisladas-sobre-fondo-transparente-sombras-elementos-motor-ilustracion-vectorial_1284-70252.jpg" alt="Producto 1">
+            <div class="card-block text-center">
+                <h4 class="card-title">Producto 1</h4>
+                <p class="card-text">Descripción del producto 1.</p>
+                <!-- Botones de acciones -->
+                <div class="d-flex justify-content-center gap-2">
+                    <button class="btn btn-primary btn-sm rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#editModal">Editar</button>
+                    <button class="btn btn-danger btn-sm rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#deleteModal">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Producto Ejemplo 1 -->
+    <div class="col-4"> <!-- Ajusta para tres productos por fila -->
+      <div class="card rounded">
+          <img class="card-img-top img-fluid" src="https://img.freepik.com/vector-gratis/piezas-automoviles-gran-conjunto-imagenes-realistas-aisladas-sobre-fondo-transparente-sombras-elementos-motor-ilustracion-vectorial_1284-70252.jpg" alt="Producto 1">
+          <div class="card-block text-center">
+              <h4 class="card-title">Producto 1</h4>
+              <p class="card-text">Descripción del producto 1.</p>
+              <!-- Botones de acciones -->
+              <div class="d-flex justify-content-center gap-2">
+                  <button class="btn btn-primary btn-sm rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#editModal">Editar</button>
+                  <button class="btn btn-danger btn-sm rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#deleteModal">Eliminar</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Producto Ejemplo 1 -->
+  <div class="col-4"> <!-- Ajusta para tres productos por fila -->
+    <div class="card rounded">
+        <img class="card-img-top img-fluid" src="https://img.freepik.com/vector-gratis/piezas-automoviles-gran-conjunto-imagenes-realistas-aisladas-sobre-fondo-transparente-sombras-elementos-motor-ilustracion-vectorial_1284-70252.jpg" alt="Producto 1">
+        <div class="card-block text-center">
+            <h4 class="card-title">Producto 1</h4>
+            <p class="card-text">Descripción del producto 1.</p>
+            <!-- Botones de acciones -->
+            <div class="d-flex justify-content-center gap-2">
+                <button class="btn btn-primary btn-sm rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#editModal">Editar</button>
+                <button class="btn btn-danger btn-sm rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#deleteModal">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <!-- Producto Ejemplo 3 -->
+      <div class="col-4">
+          <div class="card rounded">
+              <img class="card-img-top img-fluid" src="https://www.acdelco.mx/img/productos/bujias-beneficios.jpg" alt="Producto 3">
+              <div class="card-block text-center">
+                  <h4 class="card-title">Producto 3</h4>
+                  <p class="card-text">Descripción del producto 3.</p>
+                  <!-- Botones de acciones -->
+                  <div class="d-flex justify-content-center gap-2">
+                      <button class="btn btn-primary btn-sm rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#editModal">Editar</button>
+                      <button class="btn btn-danger btn-sm rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#deleteModal">Eliminar</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- /Listado -->
+
+
+
+          <!-- /Listado -->
+        </div>
+      </div>
+    </div>
+
+    <!-- /Productos -->
+  </body>
+</html>

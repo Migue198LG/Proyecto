@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú Animado - MECH-RECORD</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  <style>
+    :root {
+      --form-bg: rgba(44, 62, 80, 0.95);
+      --text-color: #ecf0f1;
+      --primary-bg: #4f6377;
+      --menu-bg-1: #6b8aa1; /* Rojo grisáceo claro */
+      --menu-bg-2: #4f6377; /* Gris verdoso */
+      --menu-bg-3: #2f4053; /* Gris oscuro */
+      --menu-bg-4: #76db98; /* Verde menta */
+      --hover-bg: #2f4053; /* Gris oscuro al pasar el ratón */
+      --submenu-bg: rgba(103, 122, 141, 0.95); /* Azul grisáceo */
+      --hover-color: #8599ad; /* Azul claro */
+    }
+
+    html {
+      height: 100%;
+      background: url('https://img.freepik.com/vector-premium/fondo-abstracto-rueda-dientes_77417-730.jpg?semt=ais_hybrid') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      max-width: 1200px;
+      margin: 20px auto;
+    }
+
+    header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background: var(--menu-bg-1);
+      border-radius: 15px;
+      color: var(--text-color);
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      border: 2px solid #e74c3c; /* Bordes rojos */
+    }
+
+    header img {
+      max-width: 120px;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 36px;
+    }
+
+    .logout-button {
+      background-color: var(--menu-bg-3);
+      color: var(--text-color);
+      padding: 10px 20px;
+      border-radius: 15px;
+      font-weight: bold;
+      font-size: 16px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: background-color 0.3s;
+    }
+
+    .logout-button:hover {
+      background-color: var(--hover-bg);
+    }
+
+    .logout-button img {
+      width: 20px;
+      height: 20px;
+    }
+
+    .menu-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px; /* Separa los menús */
+      width: 100%;
+    }
+
+    .menu {
+      background: var(--menu-bg-2);
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+      transition: 0.3s;
+      width: 23%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      position: relative; /* Para la animación */
+      overflow: hidden; /* Oculta el texto desplegable hasta que se vea */
+      border: 2px solid #e74c3c; /* Bordes rojos */
+    }
+
+    .menu img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 10px;
+    }
+
+    .menu-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .menu-description {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.8);
+      position: absolute;
+      bottom: -50px; /* Oculto inicialmente */
+      left: 0;
+      width: 100%;
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.5);
+      text-align: center;
+      transition: bottom 0.3s;
+    }
+
+    .menu:hover .menu-description {
+      bottom: 0; /* Aparece al pasar el cursor */
+    }
+
+    .menu:hover {
+      background: var(--hover-bg);
+      transform: scale(1.05);
+    }
+
+    /* Elimina el subrayado de los enlaces */
+    .menu a {
+      text-decoration: none; /* Elimina el subrayado */
+      color: inherit; /* Mantiene el color del texto del contenedor */
+      outline: none; /* Elimina el contorno al hacer clic */
+    }
+
+    /* Asegura que no haya subrayado ni contorno en los enlaces al hacer clic o enfocarlos */
+    .menu a:focus, .menu a:hover {
+      text-decoration: none; /* Asegura que no haya subrayado */
+      outline: none; /* Asegura que no haya borde azul */
+    }
+
+    .menu-button {
+      background-color: #e74c3c;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 18px;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .menu-button:hover {
+      background-color: #c0392b;
+      transform: translateY(-3px);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div style="display: flex; align-items: center; gap: 15px;">
+      <img src="/imgs/logotipo.png" alt="Logo de MECH-RECORD">
+      <h1>MECH-RECORD</h1>
+    </div>
+    <a href="javascript:void(0);" class="logout-button" id="logoutButton">
+     
+
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828479.png" alt="Cerrar Sesión">
+      Cerrar Sesión
+    </a>
+  </header>
+  
+  <div class="menu-container">
+    <div class="menu">
+      <img src="/imgs/internet.png" alt="Bitácora">
+      <div class="menu-title">Bitácora</div>
+      <div class="menu-description">Revisa y gestiona las actividades diarias y el historial de reparaciones.</div>
+      <a href="/mecanico/bitacora_mecanico.html">
+        <button class="menu-button">Ir a Bitácora</button>
+      </a>
+    </div>
+
+    <div class="menu">
+      <img src="https://cdn-icons-png.freepik.com/512/9964/9964321.png" alt="Catálogo">
+      <div class="menu-title">Catálogo</div>
+      <div class="menu-description">Consulta piezas y accesorios para reparación.</div>
+      <a href="/mecanico/catalogo_mecanico.html">
+        <button class="menu-button">Ir al Catálogo</button>
+      </a>
+    </div>
+
+    <div class="menu">
+      <img src="/imgs/registro.png" alt="Registrar">
+      <div class="menu-title">Registrar</div>
+      <div class="menu-description">Registra o actualiza los datos de clientes.</div>
+      <a href="/mecanico/cliente_nuevo_mecanico.html">
+        <button class="menu-button">Ir a Registro</button>
+      </a>
+    </div>
+
+    <div class="menu">
+      <img src="/imgs/satisfecho.png" alt="Clientes">
+      <div class="menu-title">Clientes</div>
+      <div class="menu-description">Gestiona la información y accede a la lista de clientes.</div>
+      <a href="/mecanico/clientes.html">
+        <button class="menu-button">Ir a Clientes</button>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('logoutButton').addEventListener('click', function() {
+        // Hacer una solicitud de cierre de sesión al servidor
+        fetch('/cerrarsesion', { // Actualizamos la ruta para que coincida con el endpoint del servidor
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                // Si la respuesta del servidor no es exitosa, lanza un error
+                throw new Error('Error al cerrar sesión');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.message === "Sesión cerrada correctamente") {
+                // Si el cierre de sesión fue exitoso, redirige a la página de inicio de sesión
+                window.location.href = '/iniciar-sesion'; // Cambia a la página que desees
+            } else {
+                // En caso de un mensaje inesperado, muestra un mensaje de error
+                alert('No se pudo cerrar la sesión. Intenta de nuevo.');
+            }
+        })
+        .catch(error => {
+            console.error('Error al cerrar sesión:', error);
+            alert('Hubo un error al cerrar sesión. Intenta más tarde.');
+        });
+    });
+</script>
+
+</body>
+</html>

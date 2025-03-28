@@ -1,0 +1,227 @@
+:root {
+  --body-bg: url("https://img.lovepik.com/background/20211021/large/lovepik-gradual-change-of-mechanical-technology-background-image_400514721.jpg");
+  --form-bg: rgba(44, 62, 80, 0.95);
+  --text-color: #ecf0f1;
+  --primary-color: #4f6377;
+  --secondary-color: #6b8aa1;
+  --hover-color: #2f4053;
+  --button-hover-color: rgba(255, 255, 255, 0.2);
+  --light-gray: #bdc3c7;
+  --border-radius: 15px;
+  --font-primary: "Ubuntu", sans-serif;
+}
+
+/* General */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  color: var(--text-color);
+  background: linear-gradient(to bottom, rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), var(--body-bg);
+  background-size: cover;
+  background-position: center;
+}
+
+/* Header */
+#header-container {
+  background-color: #34495e;
+  padding: 20px 0;
+  border-radius: 15px;
+  color: var(--text-color);
+  transition: background-color 0.3s ease;
+}
+
+/* Menú */
+#menu-container {
+  background-color: #f7f7f9;
+  border-radius: 15px;
+}
+
+/* Botones */
+.btn {
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-platzi {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+.btn-platzi:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Filtros */
+.filtros-toggle {
+  border-radius: 15px;
+  background-color: #f7f7f7;
+}
+
+.filtros-toggle .list-group-item {
+  border-radius: 12px;
+}
+
+.filtros-toggle .list-group-item.active {
+  background-color: #2c3e50;
+  color: white;
+}
+
+.filtros-toggle .list-group-item-action {
+  border-radius: 12px;
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+
+.filtros-toggle .list-group-item-action:hover {
+  background-color: #ecf0f1;
+}
+
+.list-group-item span.tag {
+  background-color: #95a5a6;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 15px;
+}
+
+/* Productos */
+#productos-container {
+  margin-bottom: 2em;
+}
+
+#productos-container .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; /* Para centrar y distribuir uniformemente */
+  margin-top: 20px;
+}
+
+.card {
+  margin: 10px; /* Separación externa entre tarjetas */
+  padding: 15px; /* Espaciado interno dentro de la tarjeta */
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 280px; /* Ancho máximo para que no abarque todo */
+  text-align: center; /* Centrar contenido */
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.card-text {
+  color: #000;
+  font-size: 14px; /* Tamaño de texto compacto */
+}
+
+.card-img-top {
+  width: 100%;
+  height: 180px; /* Tamaño fijo para uniformidad */
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+
+/* Espaciado para productos */
+#productos-container {
+  margin-bottom: 2em;
+}
+/* Logotipo en el Header */
+#header-container .logo {
+  max-width: 50px; /* Tamaño ajustado del logotipo */
+  height: auto;
+  margin-right: 10px; /* Espacio entre logotipo y texto */
+}
+
+/* Paginación */
+.pagination-container {
+  margin-bottom: 0 !important;
+}
+
+.page-item.active .page-link {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.page-link {
+  color: var(--secondary-color);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#productos-container .col-xs-12.col-sm-6.col-lg-4 {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    background-size: cover;
+    background-position: center;
+  }
+
+  .btn, .btn-platzi {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .form-control {
+    width: 100%;
+  }
+
+  #footer-container {
+    padding: 2em 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn, .btn-platzi {
+    padding: 10px;
+  }
+
+  label {
+    font-size: 10px;
+  }
+
+  input, select {
+    padding: 8px;
+  }
+
+  #footer-container {
+    padding: 1.5em 0;
+  }
+}

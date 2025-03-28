@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MECH-RECORD</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  <style>
+    :root {
+      --body-bg: url("https://img.freepik.com/vector-gratis/tecnologia-digital-e-ingenieria-concepto-telecomunicaciones-digitales-ilustracion-vector-fondo-tecnologia-futurista_587448-960.jpg?semt=ais_hybrid");
+      --form-bg: rgba(44, 62, 80, 0.95);
+      --text-color: #ecf0f1;
+      --primary-bg: #4f6377;
+      --menu-bg-1: #6b8aa1;
+      --menu-bg-2: #4f6377;
+      --menu-bg-3: #2f4053;
+      --menu-bg-4: #76db98;
+      --hover-bg: #2f4053;
+      --submenu-bg: rgba(103, 122, 141, 0.95);
+      --hover-color: #8599ad;
+    }
+
+    html {
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), var(--body-bg);
+      background-size: cover;
+      background-position: center;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      color: var(--text-color);
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 0;
+      background: var(--menu-bg-1);
+      color: var(--text-color);
+      font-size: 48px; /* Aumenté el tamaño de la fuente */
+      font-weight: bold;
+      border-bottom: 4px solid var(--hover-bg);
+      border-radius: 25px;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 1.5s ease-in-out;
+      position: relative;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 48px; /* Aumenté el tamaño de la fuente */
+    }
+
+    .menu-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 20px;
+    }
+
+    .menu {
+      background: var(--menu-bg-1);
+      padding: 40px;
+      border-radius: 25px;
+      text-align: center;
+      transition: background 0.3s ease, transform 0.3s ease;
+      width: 250px;
+      height: 300px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu:hover {
+      background: var(--hover-bg);
+      transform: translateY(-5px);
+    }
+
+    .menu img {
+      width: 80px; /* Aumenté el tamaño de la imagen */
+      height: 80px; /* Aumenté el tamaño de la imagen */
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .menu img:hover {
+      transform: scale(1.1);
+    }
+
+    .menu-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .menu-description {
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .menu-button {
+      background-color: #e74c3c;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 18px;
+      width: 200px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .menu-button:hover {
+      background-color: #c0392b;
+      transform: translateY(-3px);
+    }
+
+    .button-container {
+      margin-top: 20px;
+    }
+
+    .menu-title, .menu-description {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .logout-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: var(--menu-bg-3);
+      color: var(--text-color);
+      padding: 10px 20px;
+      border-radius: 15px;
+      font-weight: bold;
+      font-size: 16px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: background-color 0.3s;
+    }
+
+    .logout-button:hover {
+      background-color: var(--hover-bg);
+    }
+
+    .logout-button img {
+      width: 20px;
+      height: 20px;
+    }
+    .logo {
+  max-width: 150px;
+  height: auto;
+  border-radius: 10px;
+  border: 3px solid red; /* Añadí el borde rojo aquí */
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 20px; background-color: var(--menu-bg-1); border-radius: 25px;">
+      <!-- Logo e Identificación -->
+      <div style="display: flex; align-items: center; gap: 15px;">
+        <img src="../imgs/logotipo.png" alt="Logo de MECH-RECORD" class="logo">
+        <h1 style="margin: 0; font-size: 48px; color: var(--text-color);">MECH-RECORD</h1>
+      </div>
+    </div>
+
+    <!-- Botón de Cerrar Sesión -->
+    <a href="logout.html" class="logout-button">
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828479.png" alt="Cerrar Sesión">
+      Cerrar Sesión
+    </a>
+  </header>
+
+  <div class="welcome-message">
+    <h2 style="text-align: center;">Bienvenido, <span id="username">Usuario</span></h2>
+  </div>
+
+  <div class="menu-container">
+    <!-- Bitácora Section -->
+    <div class="menu">
+      <!-- Nuevo ícono relacionado con registros/documentos -->
+      <img src="https://cdn-icons-png.flaticon.com/512/899/899236.png" alt="Bitácora">
+      <div class="menu-title">Bitácora</div>
+      <div class="menu-description">Consulta y gestiona las reparaciones realizadas en el taller.</div>
+      <a href="/cliente/bitacora_clientes.html">
+        <button class="menu-button">Ir a Bitácora</button>
+      </a>
+    </div>
+
+    <!-- Catálogo Section -->
+    <div class="menu">
+      <!-- Nuevo ícono relacionado con piezas y herramientas -->
+      <img src="https://cdn-icons-png.flaticon.com/512/2905/2905585.png" alt="Catálogo">
+      <div class="menu-title">Catálogo</div>
+      <div class="menu-description">Accede al catálogo de piezas y accesorios para reparación de vehículos.</div>
+      <a href="/cliente/catalogo_clientes.html">
+        <button class="menu-button">Ir al Catálogo</button>
+      </a>
+    </div>
+  </div>
+</body>
+</html>
