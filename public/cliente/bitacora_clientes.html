@@ -134,6 +134,7 @@
 
         tbody td {
             background-color: var(--table-bg);
+            color: #0c1a2b;
         }
 
         footer {
@@ -199,6 +200,29 @@
             </tbody>
         </table>
     </div>
-
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('/bitacora')
+                .then(response => response.json())
+                .then(data => {
+                    const tbody = document.querySelector('tbody');
+                    tbody.innerHTML = ''; // Limpiar datos estáticos
+    
+                    data.forEach(entry => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${new Date(entry.fecha).toLocaleString()}</td>
+                            <td>${entry.accion}</td>
+                            <td>${entry.id_usuario}</td>
+                        `;
+                        tbody.appendChild(row);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error al obtener la bitácora:', error);
+                });
+        });
+    </script>
+    
 </body>
 </html>

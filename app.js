@@ -12,7 +12,7 @@ var con = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'n0m3l0',
-    database: 'mech'
+    database: 'merch'
 });
 
 con.connect((err) => {
@@ -94,8 +94,10 @@ app.post('/iniciarsesion', (req, res) => {
             // Revisamos el tipo de usuario
             if (respuesta[0].tipo_usuario === 'mecanico') {
                 res.status(200).json({ message: "Inicio de sesión exitoso", redirectTo: "/mecanico" });
+                registrarBitacora(req.session.userId, 'Inicio de sesión');
             } else {
                 res.status(200).json({ message: "Inicio de sesión exitoso", redirectTo: "/cliente" });
+                registrarBitacora(req.session.userId, 'Inicio de sesión');
             }
         } else {
             res.status(400).json({ error: "Credenciales incorrectas" });
@@ -149,6 +151,18 @@ app.post('/cerrarsesion', (req, res) => {
     });
 });
 
+// Nueva ruta para obtener la bitácora
+app.get('/bitacora', (req, res) => {
+    con.query('SELECT * FROM bitacora ORDER BY fecha DESC', (err, results) => {
+        if (err) {
+            console.error('Error al obtener los datos de la bitácora:', err);
+            return res.status(500).json({ error: "Error al obtener la bitácora" });
+        }
+        res.status(200).json(results);
+    });
+});
+
+
 // Rutas públicas
 app.get('/dashboard', (req, res) => {
     if (req.session.userId) {
@@ -179,6 +193,14 @@ app.use((req, res, next) => {
     }
     next();
 });
+function registrarBitacora(id_usuario, accion) {
+    con.query('INSERT INTO bitacora (id_usuario, accion) VALUES (?, ?)', [id_usuario, accion], (err) => {
+        if (err) {
+            console.error('Error al registrar en la bitácora:', err);
+        }
+    });
+}
+
 
 app.listen(port, () => {
     console.log(`Servidor escuchando en http://localhost:${port}`);
