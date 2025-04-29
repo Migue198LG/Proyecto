@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis Citas</title>
+  <script>
+    const API = '/citas'; // montado en app.js
+    async function cargarCitas() {
+      const res = await fetch(API, { credentials: 'include' });
+      const citas = await res.json();
+      const lista = document.getElementById('lista-citas');
+      lista.innerHTML = citas.map(c =>
+              `<li>ID: ${c.id}, Fecha: ${c.fecha}, Estado: ${c.estado}</li>`
+      ).join('');
+    }
+
+    async function crearCita(event) {
+      event.preventDefault();
+      const id_mecanico = document.getElementById('mecanico').value;
+      const fecha = document.getElementById('fecha').value;
+      const res = await fetch(API, {
+        method: 'POST',
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id_mecanico, fecha })
+      });
+      const msg = await res.json();
+      alert(msg.message || msg.error);
+      cargarCitas();
+    }
+
+    async function actualizarEstado(event) {
+      event.preventDefault();
+      const id = document.getElementById('cita-id').value;
+      const estado = document.getElementById('estado').value;
+      const res = await fetch(API, {
+        method: 'PUT',
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id, estado })
+      });
+      const msg = await res.json();
+      alert(msg.message || msg.error);
+      cargarCitas();
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('form-crear').addEventListener('submit', crearCita);
+      document.getElementById('form-estado').addEventListener('submit', actualizarEstado);
+      cargarCitas();
+    });
+  </script>
+</head>
+<body>
+<h1>Mis Citas</h1>
+<ul id="lista-citas"></ul>
+
+<h2>Crear nueva cita</h2>
+<form id="form-crear">
+  <label>Mecánico:
+    <select id="mecanico">
+      <option value="3">Taller1</option>
+      <option value="4">IgnacioM</option>
+    </select>
+  </label>
+  <label>Fecha:
+    <input type="datetime-local" id="fecha" required>
+  </label>
+  <button type="submit">Crear</button>
+</form>
+
+<h2>Actualizar estado</h2>
+<form id="form-estado">
+  <label>ID cita:
+    <input type="number" id="cita-id" required>
+  </label>
+  <label>Estado:
+    <select id="estado">
+      <option value="pendiente">Pendiente</option>
+      <option value="confirmada">Confirmada</option>
+      <option value="cancelada">Cancelada</option>
+      <option value="finalizada">Finalizada</option>
+    </select>
+  </label>
+  <button type="submit">Actualizar</button>
+</form>
+</body>
+</html>
