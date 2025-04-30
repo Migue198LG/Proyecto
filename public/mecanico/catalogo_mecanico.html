@@ -9,7 +9,6 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../css/bootstrap-flex.min.css">
-    <script src="https://use.fontawesome.com/5765211a64.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="../css/app.css">
 </head>
@@ -118,18 +117,21 @@
 
     // Hace fetch al endpoint elegido y pinta
     async function cargar(categoria) {
-        // resalta botón activo
-        Object.keys(btns).forEach(key => {
-            btns[key].classList.toggle('active', key === categoria);
-        });
-        try {
-            const res = await fetch(ENDPOINTS[categoria]);
-            if (!res.ok) throw new Error('Error al cargar datos');
-            const data = await res.json();
-            renderProductos(data);
-        } catch (e) {
-            contenedor.innerHTML = `<p class="text-danger">Error: ${e.message}</p>`;
+        Object.keys(btns).forEach(key =>
+            btns[key].classList.toggle('active', key === categoria)
+        );
+
+        const res = await fetch(ENDPOINTS[categoria]);
+        if (!res.ok) {
+            // Manejamos el error sin lanzar una excepción
+            contenedor.innerHTML = `<p class="text-danger">
+             Error al cargar datos: ${res.status} ${res.statusText}
+             </p>`;
+            return;
         }
+
+        const data = await res.json();
+        renderProductos(data);
     }
 
     // Asignar eventos
